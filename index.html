@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery-3.4.1.slim.min.js" ></script>
     <script type="text/javascript" src="paper-full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <script type="text/javascript" src="pickr.min.js"></script>
+    <script type="text/javascript" src="turn.min.js"></script>
 
     <script type="text/paperscript" canvas="myCanvas">
      var raster = new Raster("kids");
@@ -49,67 +47,60 @@
        //the event occurred
        const pickr = new Pickr({
          el: '.color-picker',
+         container: 'body',
+         useAsButton: true,
          theme: 'nano',
          default: $("#colorvalue").val(),
          swatches: [
            'rgba(244, 67, 54, 1)',
-           'rgba(233, 30, 99, 0.95)',
-           'rgba(156, 39, 176, 0.9)',
-           'rgba(103, 58, 183, 0.85)',
            'rgba(63, 81, 181, 0.8)',
            'rgba(33, 150, 243, 0.75)',
-           'rgba(3, 169, 244, 0.7)',
-           'rgba(0, 188, 212, 0.7)',
            'rgba(0, 150, 136, 0.75)',
            'rgba(76, 175, 80, 0.8)',
-           'rgba(139, 195, 74, 0.85)',
            'rgba(205, 220, 57, 0.9)',
-           'rgba(255, 235, 59, 0.95)',
            'rgba(255, 193, 7, 1)'
          ],
          position: 'bottom-middle',
+         showAlways: true,
+         comparison: true,
+         inline: true,
 
          components: {
-           palette: true,
-           preview: true,
-           opacity: true,
-           hue: true,
+           preview: false,
+           opacity: false,
+           hue: false,
            interaction: {
-             hex: true,
-             input: true,
-             clear: true,
-             cancel: true,
-             save: true
+             hex: false,
+             input: false,
+             clear: false,
+             cancel: false,
+             save: false
            }
          }
        });
 
        pickr.on('change', color => {
   	     $("#colorvalue").val(color.toHEXA().toString());
-       }).on('save', color => {
-         pickr.hide()
-       }).on('cancel', color => {
-         pickr.hide()
        });
 
      });
     </script>
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/> 
+    <link rel="stylesheet" href="nano.min.css"/> 
   </head>
   <body>
     <div>
-      <section class="demo">
+      <section>
         <input id="colorvalue" value='#F44336' type="hidden"> </input>
         <div class="center">
           <div class="color-picker"></div>
         </div>
       </section>
-
       <canvas id="myCanvas" resize>
         <img id="kids" src="kids.png"></img>
       </canvas>
+
     </div>
   </body>
 </html>
