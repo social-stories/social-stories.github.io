@@ -21,7 +21,7 @@
 
 	     path = new Path();
 	     path.strokeColor = $("#colorvalue").val();
-       path.strokeWidth = 10;
+       path.strokeWidth = 20;
        path.strokeCap = "round";
        path.strokeJoin = "round";
 	     // Select the path, so we can see its segment points:
@@ -52,13 +52,13 @@
          theme: 'nano',
          default: $("#colorvalue").val(),
          swatches: [
-           'rgba(244, 67, 54, 1)',
-           'rgba(63, 81, 181, 0.8)',
-           'rgba(33, 150, 243, 0.75)',
-           'rgba(0, 150, 136, 0.75)',
-           'rgba(76, 175, 80, 0.8)',
-           'rgba(205, 220, 57, 0.9)',
-           'rgba(255, 193, 7, 1)'
+           'rgba(244, 67, 54, 0.5)',
+           'rgba(63, 81, 181, 0.5)',
+           'rgba(33, 150, 243, 0.5)',
+           'rgba(0, 150, 136, 0.5)',
+           'rgba(205, 220, 57, 0.5)',
+           'rgba(255, 193, 7, 0.5)',
+           'rgba(0, 0, 0, 0.5)'
          ],
          position: 'bottom-middle',
          showAlways: true,
@@ -92,7 +92,7 @@
   <body>
     <div>
       <section>
-        <input id="colorvalue" value='#F44336' type="hidden"> </input>
+        <input id="colorvalue" value='#F4433680' type="hidden"> </input>
         <div class="center">
           <div class="color-picker"></div>
         </div>
@@ -100,13 +100,6 @@
       <canvas id="myCanvas" resize>
         <img id="kids" src="kids.png"></img>
       </canvas>
-
-      <div>
-        <h1>
-          
-        </h1>
-      <div/>
-
     </div>
   </body>
 </html>
