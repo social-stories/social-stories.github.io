@@ -7,16 +7,14 @@
       crossorigin="anonymous"></script>
     <script type="text/javascript" src="paper-full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script>
+
     <script type="text/paperscript" canvas="myCanvas">
      var raster = new Raster("kids");
      // Move the raster to the center of the view
      raster.position = view.center;
-
      raster.scale(0.8);
 
      var path;
-
      function onMouseDown(event) {
 	     // If we produced a path before, deselect it:
 	     if (path) {
